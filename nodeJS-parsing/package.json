@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-parsing",
+  "version": "1.0.0",
+  "description": "Parsing strings for better context, grammar and sentence structure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhinav Tripathy",
+  "license": "MIT",
+  "dependencies": {
+    "compromise": "^11.14.2"
+  }
+}
