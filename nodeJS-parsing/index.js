@@ -1,4 +1,24 @@
-let nlp = require('compromise')
+const nlp = require('compromise')
 
-var doc = nlp('London is calling')
-doc.sentences().toNegative()
+
+let doc = nlp('a bottle of beer on the wall.')
+doc.nouns(0).toPlural()
+
+console.log(doc.out('text'))
+
+
+/*
+
+    Sample Tags: Yellow(Color), Tree(Object), Man(Description)
+
+    Current Sentence: Thre is yellow, tree, man in front of you. 
+
+    Goal Sentence: There is a man and a tree in front of you and some of the primary colors include yellow.
+
+    Concrete Example: 
+
+
+    Normalization 
+    Grammar
+
+*/
