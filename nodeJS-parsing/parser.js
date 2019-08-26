@@ -17,7 +17,7 @@ const cov = require('./cov')
 
 let finalString = 'There is ';
 
-let sampleTags = ["bike"];
+let sampleTags = ["biKe", "hello", "garbage"];
 
 let curTags = [];
 
@@ -26,6 +26,7 @@ let vehicleCount = 0;
 for(let tag in sampleTags) {
 
     let curKey = sampleTags[tag];
+    curKey = curKey.toLowerCase();
 
     if(cov.vehicles[curKey] == undefined) {
 
@@ -68,6 +69,8 @@ else {
     let curKey = curTags[vehicleCount - 1];
 
     finalString = finalString + cov.vehicles[curKey] + " near you."
+    
+    finalString = finalString.trim()
 
 }
 
