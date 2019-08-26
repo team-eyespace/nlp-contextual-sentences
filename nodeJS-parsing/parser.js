@@ -1,5 +1,4 @@
 const cov = require('./cov')
-const nlp = require('compromise')
 
 /* 
 
@@ -16,14 +15,18 @@ const nlp = require('compromise')
 //Sample tags: bike, car, truck
 // Three String Variables startString, finalString and endString
 
-function randomStartString() {
+let startStrings = ["There is ", "The app sees ", "You are looking at"]
+
+let endStrings = []
+
+function randomString(inputStringData) {
     
-    let startStrings = ["There is ", "The app sees ", "You are looking at"]
     let rand = Math.floor((Math.random() * 3));
 
-    return startStrings[rand];
+    return inputStringData[rand];
 
 }
+
 
 let finalString = 'There is ';
 
@@ -32,6 +35,13 @@ let sampleTags = ["biKe", "truck", "car", "hello", "garbage"];
 let curTags = [];
 
 let vehicleCount = 0;
+
+/*
+    - Convert the Input tags to Lower Case and 
+    - Check whether a description for those Keys exist in the COV json
+    - Check for Undefined elements
+*/
+
 
 for(let tag in sampleTags) {
 
@@ -53,8 +63,11 @@ for(let tag in sampleTags) {
 
 }
 
-
-
+/*
+    - Check for Vehicle count 
+    - Trim the string for unwanted whitespace
+    - Substring the final string to remove a comma before the final tag is added
+*/
 
 if(vehicleCount >= 2) {
 
