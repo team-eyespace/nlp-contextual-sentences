@@ -15,14 +15,13 @@ module.exports = {
 
         "car": "a car",
         "bus": "a big bus",
-        "train": "",
-        "": "",
-        "": "",
-        "": "",
-        "default": "Be Careful!",
+        "truck": "a big truck",
+        "train": "a train",
+        "bicycle": "a bicycle",
+        "bike": "a bike",
+        "motorcycle": "a motorcycle",
+        
+        "default": "Be Careful!"
 
     }
-
-
-
 };
