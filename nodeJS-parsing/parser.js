@@ -1,5 +1,5 @@
 const cov = require('./cov')
-
+const nlp = require('compromise')
 
 /* 
 
@@ -14,10 +14,20 @@ const cov = require('./cov')
 //Testing for vehicles 
 
 //Sample tags: bike, car, truck
+// Three String Variables startString, finalString and endString
+
+function randomStartString() {
+    
+    let startStrings = ["There is ", "The app sees ", "You are looking at"]
+    let rand = Math.floor((Math.random() * 3));
+
+    return startStrings[rand];
+
+}
 
 let finalString = 'There is ';
 
-let sampleTags = ["biKe", "hello", "garbage"];
+let sampleTags = ["biKe", "truck", "car", "hello", "garbage"];
 
 let curTags = [];
 
@@ -74,5 +84,5 @@ else {
 
 }
 
-console.log(finalString)
-console.log(vehicleCount)
+// console.log(finalString)
+// console.log(vehicleCount)

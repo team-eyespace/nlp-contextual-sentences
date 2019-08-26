@@ -20,8 +20,10 @@ module.exports = {
         "bicycle": "a bicycle",
         "bike": "a bike",
         "motorcycle": "a motorcycle",
-        
+
         "default": "Be Careful!"
 
     }
+
+    
 };
