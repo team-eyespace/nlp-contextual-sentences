@@ -2,10 +2,6 @@ const cov = require('./cov')
 
 /* 
 
-    5 Random Starts for the sentences
-
-        There is 
-        The app sees
 
     Endings also could be randomized
 
@@ -17,7 +13,7 @@ const cov = require('./cov')
 
 let startStrings = ["There is ", "The app sees ", "You are looking at "]
 
-let endStrings = []
+let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 function randomString(inputStringData) {
     
@@ -31,7 +27,7 @@ let start = randomString(startStrings);
 
 let finalString = start;
 
-let sampleTags = ["biKe"];
+let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle"];
 
 let curTags = [];
 
