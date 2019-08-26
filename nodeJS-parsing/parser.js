@@ -17,7 +17,9 @@ const cov = require('./cov')
 
 let finalString = 'There is ';
 
-let sampleTags = ["bike", "truck", "hello"];
+let sampleTags = ["bike"];
+
+let curTags = [];
 
 let vehicleCount = 0;
 
@@ -33,23 +35,40 @@ for(let tag in sampleTags) {
 
     else {
 
-        finalString = finalString + cov.vehicles[curKey] + ", ";
+        curTags.push(curKey);
         vehicleCount++;
 
     }
-    
-
 
 }
 
-finalString = finalString.trim();
 
-finalString = finalString.substring(0, finalString.length - 1) + " near you" + ".";
 
 
 if(vehicleCount >= 2) {
 
+    for(let i = 0; i < vehicleCount - 1; i++) {
+
+        let curKey = curTags[i]
+        finalString = finalString + cov.vehicles[curKey] + ", "
+    
+    
+    }
+    
+    finalString = finalString.trim();
+    
+    finalString = finalString.substring(0, finalString.length - 1)
+    
+    finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + " near you."
+
     finalString = finalString + " " + cov.vehicles.default;
+}
+else {
+
+    let curKey = curTags[vehicleCount - 1];
+
+    finalString = finalString + cov.vehicles[curKey] + " near you."
+
 }
 
 console.log(finalString)
