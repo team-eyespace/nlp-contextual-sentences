@@ -15,7 +15,7 @@ const cov = require('./cov')
 //Sample tags: bike, car, truck
 // Three String Variables startString, finalString and endString
 
-let startStrings = ["There is ", "The app sees ", "You are looking at"]
+let startStrings = ["There is ", "The app sees ", "You are looking at "]
 
 let endStrings = []
 
@@ -27,10 +27,11 @@ function randomString(inputStringData) {
 
 }
 
+let start = randomString(startStrings);
 
-let finalString = 'There is ';
+let finalString = start;
 
-let sampleTags = ["biKe", "truck", "car", "hello", "garbage"];
+let sampleTags = ["biKe"];
 
 let curTags = [];
 
@@ -97,5 +98,5 @@ else {
 
 }
 
-// console.log(finalString)
-// console.log(vehicleCount)
+console.log(finalString)
+console.log(vehicleCount)

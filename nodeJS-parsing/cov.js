@@ -7,6 +7,12 @@ module.exports = {
             bicycle, bus, motorcycle, pickup truck, train, truck, bike
             lawn-mower, rocket, streetcar, tank, tractor
 
+        Buildings
+
+        CSO(Common Street Objects)
+
+
+        FOPP(Famous Objects People and Places)
 
     
     */
@@ -25,5 +31,5 @@ module.exports = {
 
     }
 
-    
+
 };
