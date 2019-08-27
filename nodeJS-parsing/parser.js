@@ -3,15 +3,15 @@ const cov = require('./cov')
 /* 
 
 
-    Endings also could be randomized
+    Implementing similar algorithm for other types of objects in COV
 
 */
-//Testing for vehicles 
 
-//Sample tags: bike, car, truck
 // Three String Variables startString, finalString and endString
 
 let startStrings = ["There is ", "The app sees ", "You are looking at "]
+
+// **Check whether random end string will cause a directional issue
 
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
@@ -37,15 +37,13 @@ let vehicleCount = 0;
     - Check for Undefined elements
 */
 
-
+//Master Loop for checking all types of COV objects
 for(let tag in sampleTags) {
 
     let curTag = sampleTags[tag];
     curTag = curTag.toLowerCase();
 
     if(cov.vehicles[curTag] == undefined) {
-
-        continue;
 
     }
 
