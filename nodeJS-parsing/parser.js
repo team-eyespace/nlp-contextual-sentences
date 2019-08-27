@@ -23,11 +23,9 @@ function randomString(inputStringData) {
 
 }
 
-let start = randomString(startStrings);
+let finalString = randomString(startStrings);
 
-let finalString = start;
-
-let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle"];
+let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "yeeet"];
 
 let curTags = [];
 
