@@ -40,10 +40,10 @@ let vehicleCount = 0;
 
 for(let tag in sampleTags) {
 
-    let curKey = sampleTags[tag];
-    curKey = curKey.toLowerCase();
+    let curTag = sampleTags[tag];
+    curTag = curTag.toLowerCase();
 
-    if(cov.vehicles[curKey] == undefined) {
+    if(cov.vehicles[curTag] == undefined) {
 
         continue;
 
@@ -51,7 +51,7 @@ for(let tag in sampleTags) {
 
     else {
 
-        curTags.push(curKey);
+        curTags.push(curTag);
         vehicleCount++;
 
     }
@@ -68,8 +68,8 @@ if(vehicleCount >= 2) {
 
     for(let i = 0; i < vehicleCount - 1; i++) {
 
-        let curKey = curTags[i]
-        finalString = finalString + cov.vehicles[curKey] + ", "
+        let curTag = curTags[i]
+        finalString = finalString + cov.vehicles[curTag] + ", "
     
     
     }
@@ -84,9 +84,9 @@ if(vehicleCount >= 2) {
 }
 else {
 
-    let curKey = curTags[vehicleCount - 1];
+    let curTag = curTags[vehicleCount - 1];
 
-    finalString = finalString + cov.vehicles[curKey] + " near you."
+    finalString = finalString + cov.vehicles[curTag] + " near you."
     
     finalString = finalString.trim()
 
