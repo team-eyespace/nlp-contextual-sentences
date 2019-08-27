@@ -45,6 +45,8 @@ for(let tag in sampleTags) {
 
     if(cov.vehicles[curTag] == undefined) {
 
+        //Skip Block
+
     }
 
     else {
@@ -79,6 +81,12 @@ if(vehicleCount >= 2) {
     finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + " near you."
 
     finalString = finalString + " " + cov.vehicles.default;
+}
+
+else if(vehicleCount = 0) {
+
+    //Skip block
+
 }
 else {
 
