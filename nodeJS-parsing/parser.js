@@ -78,7 +78,7 @@ if(vehicleCount >= 2) {
     
     finalString = finalString.substring(0, finalString.length - 1)
     
-    finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + " near you."
+    finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + randomString(endStrings)
 
     finalString = finalString + " " + cov.vehicles.default;
 }
@@ -92,7 +92,7 @@ else {
 
     let curTag = curTags[vehicleCount - 1];
 
-    finalString = finalString + cov.vehicles[curTag] + " near you."
+    finalString = finalString + cov.vehicles[curTag] + randomString(endStrings)
     
     finalString = finalString.trim()
 
