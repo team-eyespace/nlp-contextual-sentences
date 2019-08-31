@@ -100,3 +100,8 @@ else {
 
 console.log(finalString)
 console.log(vehicleCount)
+
+//Second Sentence Parsing 
+
+let seconStartStrings = ["Further, ", "Additionally "]
+
