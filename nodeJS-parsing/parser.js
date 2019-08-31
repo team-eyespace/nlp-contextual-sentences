@@ -25,7 +25,7 @@ function randomString(inputStringData) {
 
 let finalString = randomString(startStrings);
 
-let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "yeeet"];
+let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet"];
 
 let curTags = [];
 
