@@ -27,9 +27,7 @@ let finalString = randomString(startStrings);
 
 let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet"];
 
-let curTags = [];
 
-let vehicleCount = 0;
 
 /*
     - Convert the Input tags to Lower Case and 
@@ -37,9 +35,16 @@ let vehicleCount = 0;
     - Check for Undefined elements
 */
 
-//Master Loop for checking all types of COV objects
-for(let tag in sampleTags) {
+function vehicleClassifier () {
 
+    let curTags = [];
+    let vehicleCount = 0;
+    
+    //Master Loop for checking all types of COV objects
+    for(let tag in sampleTags) {
+
+    
+    
     let curTag = sampleTags[tag];
     curTag = curTag.toLowerCase();
 
@@ -64,42 +69,45 @@ for(let tag in sampleTags) {
     - Substring the final string to remove a comma before the final tag is added
 */
 
-if(vehicleCount >= 2) {
+    if(vehicleCount >= 2) {
 
-    for(let i = 0; i < vehicleCount - 1; i++) {
+        for(let i = 0; i < vehicleCount - 1; i++) {
 
-        let curTag = curTags[i]
-        finalString = finalString + cov.vehicles[curTag] + ", "
-    
-    
+            let curTag = curTags[i]
+            finalString = finalString + cov.vehicles[curTag] + ", "
+        
+        
+        }
+        
+        finalString = finalString.trim();
+        
+        finalString = finalString.substring(0, finalString.length - 1)
+        
+        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + randomString(endStrings)
+
+        finalString = finalString + " " + cov.vehicles.default;
     }
-    
-    finalString = finalString.trim();
-    
-    finalString = finalString.substring(0, finalString.length - 1)
-    
-    finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + randomString(endStrings)
 
-    finalString = finalString + " " + cov.vehicles.default;
+    else if(vehicleCount = 0) {
+
+        //Skip block
+
+    }
+    else {
+
+        let curTag = curTags[vehicleCount - 1];
+
+        finalString = finalString + cov.vehicles[curTag] + randomString(endStrings)
+        
+        finalString = finalString.trim()
+
+    }
+
+    console.log(vehicleCount);
+    return finalString 
 }
 
-else if(vehicleCount = 0) {
-
-    //Skip block
-
-}
-else {
-
-    let curTag = curTags[vehicleCount - 1];
-
-    finalString = finalString + cov.vehicles[curTag] + randomString(endStrings)
-    
-    finalString = finalString.trim()
-
-}
-
-console.log(finalString)
-console.log(vehicleCount)
+console.log(vehicleClassifier());
 
 //Second Sentence Parsing 
 
