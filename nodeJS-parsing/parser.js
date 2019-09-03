@@ -1,4 +1,5 @@
 const cov = require('./cov')
+const nlp = require('compromise')
 
 /* 
 
@@ -25,7 +26,7 @@ function randomString(inputStringData) {
 
 let finalString = randomString(startStrings);
 
-let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet"];
+
 
 
 
@@ -69,7 +70,7 @@ function vehicleClassifier () {
     - Substring the final string to remove a comma before the final tag is added
 */
 
-    if(vehicleCount >= 2) {
+    if(vehicleCount >= 3) {
 
         for(let i = 0; i < vehicleCount - 1; i++) {
 
@@ -106,6 +107,8 @@ function vehicleClassifier () {
     console.log(vehicleCount);
     return finalString 
 }
+
+let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet"];
 
 console.log(vehicleClassifier());
 
