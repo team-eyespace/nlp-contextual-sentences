@@ -110,6 +110,32 @@ function vehicleClassifier () {
 console.log(vehicleClassifier());
 
 //Second Sentence Parsing 
+function secondSentence() {
 
-let seconStartStrings = ["Further, ", "Additionally "]
+    let seconStartStrings = ["Further, ", "Additionally "]
+
+    for(let tag in sampleTags) {
+
+    
+    
+        let curTag = sampleTags[tag];
+        curTag = curTag.toLowerCase();
+    
+        if(cov.vehicles[curTag] == undefined) {
+    
+            //Skip Block
+    
+        }
+    
+        else {
+    
+            curTags.push(curTag);
+            vehicleCount++;
+    
+        }
+    
+    }
+
+}
+
 
