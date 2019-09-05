@@ -23,18 +23,9 @@
 
 const nlp = require('compromise')
 
-let text = "Hello World"
+let doc = nlp('a bottle of beer on the wall.')
+doc.nouns(0).toPlural()
 
-text = nlp.toLowerCase();
-
-console.log(text)
-// let doc = nlp("There is a tree, road, man in front of you.").normalize().out('text')
-
-// console.log(doc)
-
-// let doc = nlp('a bottle of beer on the wall.')
-// doc.nouns(0).toPlural()
-
-// console.log(doc.out('text'))
+console.log(doc.out('text'))
 
 
