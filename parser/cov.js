@@ -35,7 +35,9 @@ module.exports = {
 
         //People
         "man": "a man",
-        "women": "a women",
+        "dude": "a man"
+        "women": "are women",
+        "woman": "a woman"
         "boy": "a little boy",
         "girl": "a little girl",
         "baby": " a cute baby",
@@ -64,6 +66,14 @@ module.exports = {
 
         "road": "a road",
         "street": "a street"
+
+    }
+
+    houseObjects: {
+
+        "yeet": "yee"
+
+
 
     }
 

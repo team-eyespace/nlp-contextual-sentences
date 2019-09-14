@@ -3,7 +3,6 @@ const nlp = require('compromise')
 
 /* 
 
-
     Implementing similar algorithm for other types of objects in COV
 
 */
@@ -25,9 +24,6 @@ function randomString(inputStringData) {
 }
 
 let finalString = randomString(startStrings);
-
-
-
 
 
 /*
