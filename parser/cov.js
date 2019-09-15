@@ -26,7 +26,7 @@ module.exports = {
         "bicycle": "a bicycle",
         "bike": "a bike",
         "motorcycle": "a motorcycle",
-
+        "airplane": "an airplane",
         "default": "Be Careful!"
 
     },
@@ -35,12 +35,12 @@ module.exports = {
 
         //People
         "man": "a man",
-        "dude": "a man"
+        "dude": "a man",
         "women": "are women",
-        "woman": "a woman"
+        "woman": "a woman",
         "boy": "a little boy",
         "girl": "a little girl",
-        "baby": " a cute baby",
+        "baby": "a cute baby",
         "person": "a person",
 
         //Animals(sepcifically found in Brazil more)
@@ -67,13 +67,24 @@ module.exports = {
         "road": "a road",
         "street": "a street"
 
-    }
+    },
 
     houseObjects: {
-
+        "bottle": "a bottle",
+        "bowl": "a bowl",
+        "can": "a can",
+        "cup": "a cup",
+        "can": "a can",
+        "plate": "a plate",
+        "bed": "a bed", 
+        "chair": "a chair", 
+        "couch": "a couch", 
+        "table": "a table", 
+        "wardrobe": "a wardrobe",
+        "backpack": "a backpack",
+        "handbag": "a handbag",
+        "suitcase": "a suitcase",
         "yeet": "yee"
-
-
 
     }
 

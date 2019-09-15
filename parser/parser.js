@@ -1,6 +1,4 @@
 const cov = require('./cov')
-const nlp = require('compromise')
-
 /* 
 
     Implementing similar algorithm for other types of objects in COV
@@ -23,17 +21,76 @@ function randomString(inputStringData) {
 
 }
 
-let finalString = randomString(startStrings);
-
-
 /*
     - Convert the Input tags to Lower Case and 
     - Check whether a description for those Keys exist in the COV json
     - Check for Undefined elements
 */
 
-function vehicleClassifier () {
+function personClassifier() {
+    let finalString = randomString(startStrings);
+    let perTags = [];
+    let personCount = 0;
 
+    //Master Loop for checking all types of COV objects
+    for (let tag in sampleTags) {
+
+        let perTag = sampleTags[tag];
+        perTag = perTag.toLowerCase();
+
+        if (cov.LivingBeings[perTag] == undefined) {
+
+            //Skip Block
+
+        }
+
+        else {
+
+            perTags.push(perTag);
+            personCount++;
+
+        }
+    }
+    
+    if (personCount >= 2) {
+        
+        for (let i = 0; i < personCount - 1; i++) {
+
+            let perTag = perTags[i]
+            finalString = finalString + cov.LivingBeings[perTag] + ", "
+
+
+        }
+
+        finalString = finalString.trim();
+
+        finalString = finalString.substring(0, finalString.length - 1)
+
+        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]] + randomString(endStrings)
+
+    }
+
+    else if (personCount = 0) {
+        
+        //Skip block
+
+    }
+
+    else {
+        
+        let perTag = perTags[personCount - 1];
+        
+        finalString = finalString + cov.LivingBeings[perTag] + randomString(endStrings)
+
+        finalString = finalString.trim()
+
+    }
+ 
+    return finalString
+}
+
+function vehicleClassifier () {
+    let finalString = randomString(startStrings);
     let curTags = [];
     let vehicleCount = 0;
     
@@ -104,7 +161,8 @@ function vehicleClassifier () {
     return finalString 
 }
 
-let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet"];
+let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet", "baby"];
 
 console.log(vehicleClassifier());
+console.log(personClassifier());
 
