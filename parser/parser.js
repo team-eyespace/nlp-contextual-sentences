@@ -173,7 +173,7 @@ function vehicleClassifier () {
 
 // Buildings Function 
 
-function personClassifier() {
+function buildingClassifier() {
     let finalString = randomString(startStrings);
     let perTags = [];
     let personCount = 0;
@@ -184,7 +184,7 @@ function personClassifier() {
         let perTag = sampleTags[tag];
         perTag = perTag.toLowerCase();
 
-        if (cov.LivingBeings[perTag] == undefined) {
+        if (cov.Buildings[perTag] == undefined) {
 
             //Skip Block
 
@@ -203,7 +203,7 @@ function personClassifier() {
         for (let i = 0; i < personCount - 1; i++) {
 
             let perTag = perTags[i]
-            finalString = finalString + cov.LivingBeings[perTag] + ", "
+            finalString = finalString + cov.Buildings[perTag] + ", "
 
 
         }
@@ -226,7 +226,7 @@ function personClassifier() {
         
         let perTag = perTags[personCount - 1];
         
-        finalString = finalString + cov.LivingBeings[perTag] + randomString(endStrings)
+        finalString = finalString + cov.Buildings[perTag] + randomString(endStrings)
 
         finalString = finalString.trim()
 
@@ -234,3 +234,68 @@ function personClassifier() {
  
     return finalString
 }
+
+
+function CSOClassifier() {
+    let finalString = randomString(startStrings);
+    let perTags = [];
+    let personCount = 0;
+
+    //Master Loop for checking all types of COV objects
+    for (let tag in sampleTags) {
+
+        let perTag = sampleTags[tag];
+        perTag = perTag.toLowerCase();
+
+        if (cov.CSO[perTag] == undefined) {
+
+            //Skip Block
+
+        }
+
+        else {
+
+            perTags.push(perTag);
+            personCount++;
+
+        }
+    }
+    
+    if (personCount >= 2) {
+        
+        for (let i = 0; i < personCount - 1; i++) {
+
+            let perTag = perTags[i]
+            finalString = finalString + cov.CSO[perTag] + ", "
+
+
+        }
+
+        finalString = finalString.trim();
+
+        finalString = finalString.substring(0, finalString.length - 1)
+
+        finalString = finalString + " and " + cov.CSO[perTags[personCount - 1]] + randomString(endStrings)
+
+    }
+
+    else if (personCount = 0) {
+        
+        //Skip block
+
+    }
+
+    else {
+        
+        let perTag = perTags[personCount - 1];
+        
+        finalString = finalString + cov.CSO[perTag] + randomString(endStrings)
+
+        finalString = finalString.trim()
+
+    }
+ 
+    return finalString
+}
+
+
