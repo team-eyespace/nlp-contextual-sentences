@@ -11,8 +11,7 @@ module.exports = {
 
         CSO(Common Street Objects)
 
-
-        FOPP(Famous Objects People and Places)
+        House Objects
 
     
     */

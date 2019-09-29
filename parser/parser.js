@@ -5,6 +5,16 @@ const cov = require('./cov')
 
 */
 
+
+// Master Control for Testing 
+
+
+let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet", "baby"];
+
+console.log(vehicleClassifier());
+console.log(personClassifier());
+
+
 // Three String Variables startString, finalString and endString
 
 let startStrings = ["There is ", "The app sees ", "You are looking at "]
@@ -161,8 +171,66 @@ function vehicleClassifier () {
     return finalString 
 }
 
-let sampleTags = ["biKe", "HELLO", "cAR", "motorcycle", "TRUck", "yeeet", "baby"];
+// Buildings Function 
 
-console.log(vehicleClassifier());
-console.log(personClassifier());
+function personClassifier() {
+    let finalString = randomString(startStrings);
+    let perTags = [];
+    let personCount = 0;
 
+    //Master Loop for checking all types of COV objects
+    for (let tag in sampleTags) {
+
+        let perTag = sampleTags[tag];
+        perTag = perTag.toLowerCase();
+
+        if (cov.LivingBeings[perTag] == undefined) {
+
+            //Skip Block
+
+        }
+
+        else {
+
+            perTags.push(perTag);
+            personCount++;
+
+        }
+    }
+    
+    if (personCount >= 2) {
+        
+        for (let i = 0; i < personCount - 1; i++) {
+
+            let perTag = perTags[i]
+            finalString = finalString + cov.LivingBeings[perTag] + ", "
+
+
+        }
+
+        finalString = finalString.trim();
+
+        finalString = finalString.substring(0, finalString.length - 1)
+
+        finalString = finalString + " and " + cov.Buildings[perTags[personCount - 1]] + randomString(endStrings)
+
+    }
+
+    else if (personCount = 0) {
+        
+        //Skip block
+
+    }
+
+    else {
+        
+        let perTag = perTags[personCount - 1];
+        
+        finalString = finalString + cov.LivingBeings[perTag] + randomString(endStrings)
+
+        finalString = finalString.trim()
+
+    }
+ 
+    return finalString
+}
