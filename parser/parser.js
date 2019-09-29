@@ -6,11 +6,6 @@ const cov = require('./cov')
 */
 
 
-
-
-
-
-
 // Three String Variables startString, finalString and endString
 
 let startStrings = ["There is ", "The app sees ", "You are looking at "]
