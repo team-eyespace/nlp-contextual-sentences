@@ -17,6 +17,8 @@ master();
 function master() {
 
     let returnValue = ""
+    let csStart = "Looks like you are outdoors. We see "
+    let houseObj = "Looks like you are indoors. We see "
 
     if(houseObjectsClassifier() == false) {
 
@@ -178,7 +180,7 @@ function personClassifier() {
 
 // House Objects Classifier
 function houseObjectsClassifier() {
-    let finalString = "Looks like you are indoors. We see "
+    let finalString = ""
     let houseTags = [];
     let houseCount = 0;
 
@@ -231,10 +233,10 @@ function houseObjectsClassifier() {
 
 
 //CSO Classifier
-function houseObjectsClassifier() {
-    let finalString = "Looks like you are outdoors. We see "
-    let houseTags = [];
-    let houseCount = 0;
+function csoClassifier() {
+    let finalString = ""
+    let csoTags = [];
+    let csoCount = 0;
 
     //Master Loop for checking all types of COV objects
     for (let tag in sampleTags) {
@@ -242,41 +244,41 @@ function houseObjectsClassifier() {
         let houseTag = sampleTags[tag];
         houseTag = houseTag.toLowerCase();
 
-        if (cov.houseObjects[houseTag] != undefined) {
+        if (cov.CSO[houseTag] != undefined) {
 
-            houseTags.push(houseTag);
-            houseCount++;
+            csoTags.push(houseTag);
+            csoCount++;
 
         }
     }
 
-    if (houseCount == 0) {
+    if (csoCount == 0) {
         
         return false;
 
     }
 
-    else if(houseCount == 1) {
+    else if(csoCount == 1) {
 
-        finalString = finalString + cov.houseObjects[houseTags[0]]
+        finalString = finalString + cov.CSO[csoTags[0]]
 
     }
     
     else {
         
-        for (let i = 0; i < houseCount - 1; i++) {
+        for (let i = 0; i < csoCount - 1; i++) {
 
-            let perTag = houseTags[i]
-            finalString = finalString + cov.houseObjects[perTag] + ", "
+            let perTag = csoTags[i]
+            finalString = finalString + cov.CSO[perTag] + ", "
 
 
         }
 
-        finalString = finalString.trim();
+        finalString = finalString.trim()
 
         finalString = finalString.substring(0, finalString.length - 1)
 
-        finalString = finalString + " and " + cov.houseObjects[houseTags[houseCount - 1]]
+        finalString = finalString + " and " + cov.CSO[csoTags[csoCount - 1]]
 
     }
 
