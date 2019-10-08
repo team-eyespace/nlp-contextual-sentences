@@ -230,6 +230,59 @@ function houseObjectsClassifier() {
 }
 
 
+//CSO Classifier
+function houseObjectsClassifier() {
+    let finalString = "Looks like you are outdoors. We see "
+    let houseTags = [];
+    let houseCount = 0;
+
+    //Master Loop for checking all types of COV objects
+    for (let tag in sampleTags) {
+
+        let houseTag = sampleTags[tag];
+        houseTag = houseTag.toLowerCase();
+
+        if (cov.houseObjects[houseTag] != undefined) {
+
+            houseTags.push(houseTag);
+            houseCount++;
+
+        }
+    }
+
+    if (houseCount == 0) {
+        
+        return false;
+
+    }
+
+    else if(houseCount == 1) {
+
+        finalString = finalString + cov.houseObjects[houseTags[0]]
+
+    }
+    
+    else {
+        
+        for (let i = 0; i < houseCount - 1; i++) {
+
+            let perTag = houseTags[i]
+            finalString = finalString + cov.houseObjects[perTag] + ", "
+
+
+        }
+
+        finalString = finalString.trim();
+
+        finalString = finalString.substring(0, finalString.length - 1)
+
+        finalString = finalString + " and " + cov.houseObjects[houseTags[houseCount - 1]]
+
+    }
+
+    return finalString
+}
+
 
 
 

@@ -51,18 +51,12 @@ module.exports = {
 
     },
 
-    Buildings: {
-
+    CSO: {
         "house": "a house",
         "hospital": "a hospital",
         "museum":"a museum",
         "bank":"a bank",
         "grocery":"a grocery store",
-
-    },
-
-    CSO: {
-
         "road": "a road",
         "street": "a street"
 
