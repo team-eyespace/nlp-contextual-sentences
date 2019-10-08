@@ -9,7 +9,7 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-let sampleTags = ["yeet", "caR"]
+let sampleTags = ["yeet", "caR", "baby", "man", "woman"]
 master();
 
 
@@ -18,7 +18,7 @@ function master() {
 
     let returnValue = ""
 
-    if(vehicleClassifier() == false) {
+    if(personClassifier() == false) {
 
         console.log("Yee")
 
@@ -26,9 +26,9 @@ function master() {
 
     else {
 
-        returnValue = randomString(startStrings) + vehicleClassifier() + randomString(endStrings);
+        returnValue = randomString(startStrings) + personClassifier() + randomString(endStrings);
         returnValue.trim();
-
+        console.log(returnValue);
     }
     
 
@@ -146,6 +146,12 @@ function personClassifier() {
         return false;
 
     }
+
+    else if(personCount == 1) {
+
+        finalString = cov.LivingBeings[perTags[0]]
+
+    }
     
     else {
         
@@ -165,8 +171,6 @@ function personClassifier() {
 
     }
 
-
-    
     return finalString
 }
 
