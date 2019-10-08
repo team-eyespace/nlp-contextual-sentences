@@ -9,43 +9,50 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-let sampleTags = ["car", "truck", "yeet"]
-
+let sampleTags = ["yeet", "caR"]
 master();
+
+
+
 function master() {
 
-    console.log(vehicleClassifier());
+    let returnValue = ""
 
-}
+    if(vehicleClassifier() == false) {
 
-
-function vehicleClassifier () {
-    let finalString = randomString(startStrings);
-    let curTags = [];
-    let vehicleCount = 0;
-    
-    for(let tag in sampleTags) {
-
-    
-    let curTag = sampleTags[tag];
-    curTag = curTag.toLowerCase();
-
-    if(cov.vehicles[curTag] == undefined) {
-
-        //Skip Block
+        console.log("Yee")
 
     }
 
     else {
 
+        returnValue = randomString(startStrings) + vehicleClassifier() + randomString(endStrings);
+        returnValue.trim();
+
+    }
+    
+
+}
+
+
+function vehicleClassifier () {
+    let finalString = ""
+    let curTags = [];
+    let vehicleCount = 0;
+    
+    for(let tag in sampleTags) {
+    
+    let curTag = sampleTags[tag];
+    curTag = curTag.toLowerCase();
+
+    if(cov.vehicles[curTag] != undefined) {
+
         curTags.push(curTag);
         vehicleCount++;
-        
 
     }
 
 }
-
 
 /*
     - Check for Vehicle count 
@@ -67,14 +74,12 @@ function vehicleClassifier () {
         
         finalString = finalString.substring(0, finalString.length - 1)
         
-        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + randomString(endStrings)
+        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]]
 
         finalString = finalString + " " + cov.vehicles.default;
     }
 
     else if(vehicleCount == 0) {
-
-        //Skip block
 
         return false
 
@@ -88,7 +93,7 @@ function vehicleClassifier () {
             let curTag2 = curTags[1]
         
 
-            finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2] + randomString(endStrings)
+            finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2]
         
             finalString = finalString.trim()
 
@@ -99,7 +104,7 @@ function vehicleClassifier () {
 
             let curTag = curTags[0]
         
-            finalString = finalString + cov.vehicles[curTag] + randomString(endStrings)
+            finalString = finalString + cov.vehicles[curTag]
         
             finalString = finalString.trim()
 
@@ -116,9 +121,9 @@ function vehicleClassifier () {
 
 
 
-
+//Person Classifier 
 function personClassifier() {
-    let finalString = randomString(startStrings);
+    let finalString = ""
     let perTags = [];
     let personCount = 0;
 
@@ -128,21 +133,21 @@ function personClassifier() {
         let perTag = sampleTags[tag];
         perTag = perTag.toLowerCase();
 
-        if (cov.LivingBeings[perTag] == undefined) {
-
-            //Skip Block
-
-        }
-
-        else {
+        if (cov.LivingBeings[perTag] != undefined) {
 
             perTags.push(perTag);
             personCount++;
 
         }
     }
+
+    if (personCount == 0) {
+        
+        return false;
+
+    }
     
-    if (personCount >= 2) {
+    else {
         
         for (let i = 0; i < personCount - 1; i++) {
 
@@ -156,26 +161,12 @@ function personClassifier() {
 
         finalString = finalString.substring(0, finalString.length - 1)
 
-        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]] + randomString(endStrings)
+        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]]
 
     }
 
-    else if (personCount = 0) {
-        
-        //Skip block
 
-    }
-
-    else {
-        
-        let perTag = perTags[personCount - 1];
-        
-        finalString = finalString + cov.LivingBeings[perTag] + randomString(endStrings)
-
-        finalString = finalString.trim()
-
-    }
- 
+    
     return finalString
 }
 
