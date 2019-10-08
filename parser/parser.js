@@ -1,10 +1,4 @@
 const cov = require('./cov')
-/* 
-
-    Implementing similar algorithm for other types of objects in COV
-
-*/
-
 
 // Three String Variables startString, finalString and endString
 
@@ -15,102 +9,59 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-function randomString(inputStringData) {
-    
-    let rand = Math.floor((Math.random() * 3));
-
-    return inputStringData[rand];
-
-}
-
-/*
-    - Convert the Input tags to Lower Case and 
-    - Check whether a description for those Keys exist in the COV json
-    - Check for Undefined elements
-*/
-
-function personClassifier() {
-    let finalString = randomString(startStrings);
-    let perTags = [];
-    let personCount = 0;
-
-    //Master Loop for checking all types of COV objects
-    for (let tag in sampleTags) {
-
-        let perTag = sampleTags[tag];
-        perTag = perTag.toLowerCase();
-
-        if (cov.LivingBeings[perTag] == undefined) {
-
-            //Skip Block
-
-        }
-
-        else {
-
-            perTags.push(perTag);
-            personCount++;
-
-        }
-    }
-    
-    if (personCount >= 2) {
-        
-        for (let i = 0; i < personCount - 1; i++) {
-
-            let perTag = perTags[i]
-            finalString = finalString + cov.LivingBeings[perTag] + ", "
+let sampleTags = ["caR", "baby", "man", "woman", "bottle"]
+master();
 
 
-        }
 
-        finalString = finalString.trim();
+function master() {
 
-        finalString = finalString.substring(0, finalString.length - 1)
+    let returnValue = ""
+    let csStart = "Looks like you are outdoors. We see "
+    let houseObj = "Looks like you are indoors. We see "
 
-        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]] + randomString(endStrings)
+    if(houseObjectsClassifier() == false) {
 
-    }
-
-    else if (personCount = 0) {
-        
-        //Skip block
+        console.log("Yee")
 
     }
 
     else {
-        
-        let perTag = perTags[personCount - 1];
-        
-        finalString = finalString + cov.LivingBeings[perTag] + randomString(endStrings)
 
-        finalString = finalString.trim()
+        returnValue = houseObjectsClassifier() + randomString(endStrings);
+        returnValue.trim();
+        console.log(returnValue);
+    }
+
+    if(personClassifier() == false) {
+
+        console.log("Yee")
 
     }
- 
-    return finalString
+    else {
+
+
+        returnValue = personClassifier() + randomString(endStrings);
+        returnValue.trim();
+        console.log(returnValue);
+
+    }
+    
+
 }
 
+
 function vehicleClassifier () {
-    let finalString = randomString(startStrings);
+    let finalString = ""
     let curTags = [];
     let vehicleCount = 0;
     
-    //Master Loop for checking all types of COV objects
     for(let tag in sampleTags) {
-
-    
     
     let curTag = sampleTags[tag];
     curTag = curTag.toLowerCase();
 
-    if(cov.vehicles[curTag] == undefined) {
-
-        //Skip Block
-
-    }
-
-    else {
+    if(cov.vehicles[curTag] != undefined) {
 
         curTags.push(curTag);
         vehicleCount++;
@@ -139,34 +90,56 @@ function vehicleClassifier () {
         
         finalString = finalString.substring(0, finalString.length - 1)
         
-        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]] + randomString(endStrings)
+        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]]
 
         finalString = finalString + " " + cov.vehicles.default;
     }
 
-    else if(vehicleCount = 0) {
+    else if(vehicleCount == 0) {
 
-        //Skip block
+        return false
 
     }
     else {
 
-        let curTag = curTags[vehicleCount - 1];
+        if(vehicleCount == 2) {
 
-        finalString = finalString + cov.vehicles[curTag] + randomString(endStrings)
+            let curTag1 = curTags[0]
+
+            let curTag2 = curTags[1]
         
-        finalString = finalString.trim()
+
+            finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2]
+        
+            finalString = finalString.trim()
+
+
+        }
+
+        else {
+
+            let curTag = curTags[0]
+        
+            finalString = finalString + cov.vehicles[curTag]
+        
+            finalString = finalString.trim()
+
+
+        }
+
+        
 
     }
 
-    console.log(vehicleCount);
     return finalString 
 }
 
-// Buildings Function 
 
-function buildingClassifier() {
-    let finalString = randomString(startStrings);
+
+
+//Person Classifier 
+function personClassifier() {
+    let finalString = ""
     let perTags = [];
     let personCount = 0;
 
@@ -176,26 +149,32 @@ function buildingClassifier() {
         let perTag = sampleTags[tag];
         perTag = perTag.toLowerCase();
 
-        if (cov.Buildings[perTag] == undefined) {
-
-            //Skip Block
-
-        }
-
-        else {
+        if (cov.LivingBeings[perTag] != undefined) {
 
             perTags.push(perTag);
             personCount++;
 
         }
     }
+
+    if (personCount == 0) {
+        
+        return false;
+
+    }
+
+    else if(personCount == 1) {
+
+        finalString = cov.LivingBeings[perTags[0]]
+
+    }
     
-    if (personCount >= 2) {
+    else {
         
         for (let i = 0; i < personCount - 1; i++) {
 
             let perTag = perTags[i]
-            finalString = finalString + cov.Buildings[perTag] + ", "
+            finalString = finalString + cov.LivingBeings[perTag] + ", "
 
 
         }
@@ -204,122 +183,52 @@ function buildingClassifier() {
 
         finalString = finalString.substring(0, finalString.length - 1)
 
-        finalString = finalString + " and " + cov.Buildings[perTags[personCount - 1]] + randomString(endStrings)
+        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]]
 
     }
 
-    else if (personCount = 0) {
-        
-        //Skip block
-
-    }
-
-    else {
-        
-        let perTag = perTags[personCount - 1];
-        
-        finalString = finalString + cov.Buildings[perTag] + randomString(endStrings)
-
-        finalString = finalString.trim()
-
-    }
- 
     return finalString
 }
 
 
-function CSOClassifier() {
-    let finalString = randomString(startStrings);
-    let perTags = [];
-    let personCount = 0;
 
-    //Master Loop for checking all types of COV objects
-    for (let tag in sampleTags) {
-
-        let perTag = sampleTags[tag];
-        perTag = perTag.toLowerCase();
-
-        if (cov.CSO[perTag] == undefined) {
-
-            //Skip Block
-
-        }
-
-        else {
-
-            perTags.push(perTag);
-            personCount++;
-
-        }
-    }
-    
-    if (personCount >= 2) {
-        
-        for (let i = 0; i < personCount - 1; i++) {
-
-            let perTag = perTags[i]
-            finalString = finalString + cov.CSO[perTag] + ", "
-
-
-        }
-
-        finalString = finalString.trim();
-
-        finalString = finalString.substring(0, finalString.length - 1)
-
-        finalString = finalString + " and " + cov.CSO[perTags[personCount - 1]] + randomString(endStrings)
-
-    }
-
-    else if (personCount = 0) {
-        
-        //Skip block
-
-    }
-
-    else {
-        
-        let perTag = perTags[personCount - 1];
-        
-        finalString = finalString + cov.CSO[perTag] + randomString(endStrings)
-
-        finalString = finalString.trim()
-
-    }
- 
-    return finalString
-}
-
+// House Objects Classifier
 function houseObjectsClassifier() {
-    let finalString = randomString(startStrings);
-    let perTags = [];
-    let personCount = 0;
+    let finalString = ""
+    let houseTags = [];
+    let houseCount = 0;
 
     //Master Loop for checking all types of COV objects
     for (let tag in sampleTags) {
 
-        let perTag = sampleTags[tag];
-        perTag = perTag.toLowerCase();
+        let houseTag = sampleTags[tag];
+        houseTag = houseTag.toLowerCase();
 
-        if (cov.houseObjects[perTag] == undefined) {
+        if (cov.houseObjects[houseTag] != undefined) {
 
-            //Skip Block
-
-        }
-
-        else {
-
-            perTags.push(perTag);
-            personCount++;
+            houseTags.push(houseTag);
+            houseCount++;
 
         }
     }
-    
-    if (personCount >= 2) {
-        
-        for (let i = 0; i < personCount - 1; i++) {
 
-            let perTag = perTags[i]
+    if (houseCount == 0) {
+        
+        return false;
+
+    }
+
+    else if(houseCount == 1) {
+
+        finalString = finalString + cov.houseObjects[houseTags[0]]
+
+    }
+    
+    else {
+        
+        for (let i = 0; i < houseCount - 1; i++) {
+
+            let perTag = houseTags[i]
             finalString = finalString + cov.houseObjects[perTag] + ", "
 
 
@@ -329,26 +238,64 @@ function houseObjectsClassifier() {
 
         finalString = finalString.substring(0, finalString.length - 1)
 
-        finalString = finalString + " and " + cov.houseObjects[perTags[personCount - 1]] + randomString(endStrings)
+        finalString = finalString + " and " + cov.houseObjects[houseTags[houseCount - 1]]
 
     }
 
-    else if (personCount = 0) {
+    return finalString
+}
+
+
+//CSO Classifier
+function csoClassifier() {
+    let finalString = ""
+    let csoTags = [];
+    let csoCount = 0;
+
+    //Master Loop for checking all types of COV objects
+    for (let tag in sampleTags) {
+
+        let houseTag = sampleTags[tag];
+        houseTag = houseTag.toLowerCase();
+
+        if (cov.CSO[houseTag] != undefined) {
+
+            csoTags.push(houseTag);
+            csoCount++;
+
+        }
+    }
+
+    if (csoCount == 0) {
         
-        //Skip block
+        return false;
 
     }
 
+    else if(csoCount == 1) {
+
+        finalString = finalString + cov.CSO[csoTags[0]]
+
+    }
+    
     else {
         
-        let perTag = perTags[personCount - 1];
-        
-        finalString = finalString + cov.houseObjects[perTag] + randomString(endStrings)
+        for (let i = 0; i < csoCount - 1; i++) {
+
+            let perTag = csoTags[i]
+            finalString = finalString + cov.CSO[perTag] + ", "
+
+
+        }
 
         finalString = finalString.trim()
 
+        finalString = finalString.substring(0, finalString.length - 1)
+
+        finalString = finalString + " and " + cov.CSO[csoTags[csoCount - 1]]
+
     }
- 
+
     return finalString
 }
 
@@ -356,7 +303,20 @@ function houseObjectsClassifier() {
 
 
 
-// Master Control for Testing 
 
 
-let sampleTags = ["house"];
+
+
+
+
+
+// Helper Functions
+
+function randomString(inputStringData) {
+    
+    let rand = Math.floor((Math.random() * 3));
+
+    return inputStringData[rand];
+
+}
+
