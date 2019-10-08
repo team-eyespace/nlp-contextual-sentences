@@ -9,7 +9,7 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-let sampleTags = ["yeet", "caR", "baby", "man", "woman"]
+let sampleTags = ["caR", "baby", "man", "woman", "bottle"]
 master();
 
 
@@ -26,7 +26,7 @@ function master() {
 
     else {
 
-        returnValue = randomString(startStrings) + personClassifier() + randomString(endStrings);
+        returnValue = houseObjectsClassifier() + randomString(endStrings);
         returnValue.trim();
         console.log(returnValue);
     }
@@ -188,9 +188,9 @@ function houseObjectsClassifier() {
         let houseTag = sampleTags[tag];
         houseTag = houseTag.toLowerCase();
 
-        if (cov.houseObjects[perTag] != undefined) {
+        if (cov.houseObjects[houseTag] != undefined) {
 
-            houseTags.push(perTag);
+            houseTags.push(houseTag);
             houseCount++;
 
         }
@@ -204,13 +204,13 @@ function houseObjectsClassifier() {
 
     else if(houseCount == 1) {
 
-        finalString = cov.houseObjects[perTags[0]]
+        finalString = finalString + cov.houseObjects[houseTags[0]]
 
     }
     
     else {
         
-        for (let i = 0; i < HOUSECount - 1; i++) {
+        for (let i = 0; i < houseCount - 1; i++) {
 
             let perTag = houseTags[i]
             finalString = finalString + cov.houseObjects[perTag] + ", "
@@ -222,7 +222,7 @@ function houseObjectsClassifier() {
 
         finalString = finalString.substring(0, finalString.length - 1)
 
-        finalString = finalString + " and " + cov.houseObjects[perTags[houseCount - 1]]
+        finalString = finalString + " and " + cov.houseObjects[houseTags[houseCount - 1]]
 
     }
 
