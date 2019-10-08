@@ -18,7 +18,7 @@ function master() {
 
     let returnValue = ""
 
-    if(personClassifier() == false) {
+    if(houseObjectsClassifier() == false) {
 
         console.log("Yee")
 
@@ -173,6 +173,63 @@ function personClassifier() {
 
     return finalString
 }
+
+
+
+// House Objects Classifier
+function houseObjectsClassifier() {
+    let finalString = "Looks like you are indoors. We see "
+    let houseTags = [];
+    let houseCount = 0;
+
+    //Master Loop for checking all types of COV objects
+    for (let tag in sampleTags) {
+
+        let houseTag = sampleTags[tag];
+        houseTag = houseTag.toLowerCase();
+
+        if (cov.houseObjects[perTag] != undefined) {
+
+            houseTags.push(perTag);
+            houseCount++;
+
+        }
+    }
+
+    if (houseCount == 0) {
+        
+        return false;
+
+    }
+
+    else if(houseCount == 1) {
+
+        finalString = cov.houseObjects[perTags[0]]
+
+    }
+    
+    else {
+        
+        for (let i = 0; i < HOUSECount - 1; i++) {
+
+            let perTag = houseTags[i]
+            finalString = finalString + cov.houseObjects[perTag] + ", "
+
+
+        }
+
+        finalString = finalString.trim();
+
+        finalString = finalString.substring(0, finalString.length - 1)
+
+        finalString = finalString + " and " + cov.houseObjects[perTags[houseCount - 1]]
+
+    }
+
+    return finalString
+}
+
+
 
 
 
