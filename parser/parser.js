@@ -1,10 +1,4 @@
 const cov = require('./cov')
-/* 
-
-    Implementing similar algorithm for other types of objects in COV
-
-*/
-
 
 // Three String Variables startString, finalString and endString
 
@@ -22,6 +16,10 @@ function randomString(inputStringData) {
     return inputStringData[rand];
 
 }
+
+
+
+
 
 /*
     - Convert the Input tags to Lower Case and 
@@ -352,11 +350,3 @@ function houseObjectsClassifier() {
     return finalString
 }
 
-
-
-
-
-// Master Control for Testing 
-
-
-let sampleTags = ["house"];
