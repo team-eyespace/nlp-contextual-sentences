@@ -32,6 +32,20 @@ function master() {
         returnValue.trim();
         console.log(returnValue);
     }
+
+    if(personClassifier() == false) {
+
+        console.log("Yee")
+
+    }
+    else {
+
+
+        returnValue = personClassifier() + randomString(endStrings);
+        returnValue.trim();
+        console.log(returnValue);
+
+    }
     
 
 }
