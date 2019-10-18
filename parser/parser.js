@@ -17,36 +17,36 @@ master();
 function master() {
 
     let returnValue = ""
-    let csStart = "Looks like you are outdoors. We see "
+    let csoStart = "Looks like you are outdoors. We see "
     let houseObj = "Looks like you are indoors. We see "
-
-    if(houseObjectsClassifier() == false) {
-
-        console.log("Yee")
-
-    }
-
-    else {
-
-        returnValue = houseObjectsClassifier() + randomString(endStrings);
-        returnValue.trim();
-        console.log(returnValue);
-    }
-
-    if(personClassifier() == false) {
-
-        console.log("Yee")
-
-    }
-    else {
-
-
-        returnValue = personClassifier() + randomString(endStrings);
-        returnValue.trim();
-        console.log(returnValue);
-
-    }
     
+    //Vehicle Classifier
+    if(vehicleClassifier() == false) {
+
+        console.log("no vehicles found")
+
+    }
+    else {
+
+        returnValue = randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
+        console.log("constructed vehciles succesfully")
+
+    }
+
+    //Person Classifier
+    if(vehicleClassifier() == false) {
+
+        console.log("no vehicles found")
+
+    }
+    else {
+
+        returnValue = randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
+        console.log("constructed vehciles succesfully")
+
+    }
+
+
 
 }
 
