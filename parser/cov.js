@@ -77,6 +77,8 @@ module.exports = {
         "backpack": "a backpack",
         "handbag": "a handbag",
         "suitcase": "a suitcase",
+        "toothbrush": "a toothbrush",
+        "soap": "a bar of soap",
         "yeet": "yee"
 
     }
