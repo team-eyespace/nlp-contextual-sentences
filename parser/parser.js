@@ -23,30 +23,58 @@ function master() {
     //Vehicle Classifier
     if(vehicleClassifier() == false) {
 
-        console.log("no vehicles found")
+        console.log("no vehicles() found")
 
     }
     else {
 
-        returnValue = randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
+        returnValue = returnValue + randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
         console.log("constructed vehciles succesfully")
 
     }
 
     //Person Classifier
-    if(vehicleClassifier() == false) {
+    if(personClassifier() == false) {
 
-        console.log("no vehicles found")
+        console.log("no persons found")
 
     }
     else {
 
-        returnValue = randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
-        console.log("constructed vehciles succesfully")
+        returnValue = returnValue + randomString(startStrings) + personClassifier + randomString(endStrings)
+        console.log("constructed persons() succesfully")
 
     }
 
 
+    //House Objects Classifier
+    if(houseObjectsClassifier() == false) {
+
+        console.log("no houseObjects found")
+
+    }
+    else {
+
+        returnValue = houseObj + houseObjectsClassifier() + randomString(endStrings)
+        console.log("constructed houseObjects() succesfully")
+
+    }
+
+
+    //CSO Classifier
+    if(csoClassifier() == false) {
+
+        console.log("no CSO found")
+
+    }
+    else {
+
+        returnValue = csoStart + csoClassifier() + randomString(endStrings)
+        console.log("constructed CSO() succesfully")
+
+    }
+
+    console.log(returnValue)
 
 }
 
