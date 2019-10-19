@@ -17,36 +17,64 @@ master();
 function master() {
 
     let returnValue = ""
-    let csStart = "Looks like you are outdoors. We see "
+    let csoStart = "Looks like you are outdoors. We see "
     let houseObj = "Looks like you are indoors. We see "
+    
+    //Vehicle Classifier
+    if(vehicleClassifier() == false) {
 
-    if(houseObjectsClassifier() == false) {
-
-        console.log("Yee")
+        console.log("no vehicles() found")
 
     }
-
     else {
 
-        returnValue = houseObjectsClassifier() + randomString(endStrings);
-        returnValue.trim();
-        console.log(returnValue);
+        returnValue = returnValue + randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
+        console.log("constructed vehciles succesfully")
+
     }
 
+    //Person Classifier
     if(personClassifier() == false) {
 
-        console.log("Yee")
+        console.log("no persons found")
 
     }
     else {
 
-
-        returnValue = personClassifier() + randomString(endStrings);
-        returnValue.trim();
-        console.log(returnValue);
+        returnValue = returnValue + randomString(startStrings) + personClassifier + randomString(endStrings)
+        console.log("constructed persons() succesfully")
 
     }
-    
+
+
+    //House Objects Classifier
+    if(houseObjectsClassifier() == false) {
+
+        console.log("no houseObjects found")
+
+    }
+    else {
+
+        returnValue = houseObj + houseObjectsClassifier() + randomString(endStrings)
+        console.log("constructed houseObjects() succesfully")
+
+    }
+
+
+    //CSO Classifier
+    if(csoClassifier() == false) {
+
+        console.log("no CSO found")
+
+    }
+    else {
+
+        returnValue = csoStart + csoClassifier() + randomString(endStrings)
+        console.log("constructed CSO() succesfully")
+
+    }
+
+    console.log(returnValue)
 
 }
 
