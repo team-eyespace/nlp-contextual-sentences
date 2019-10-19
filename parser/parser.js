@@ -13,7 +13,6 @@ let sampleTags = ["caR", "baby", "man", "woman", "bottle"]
 master();
 
 
-
 function master() {
 
     let returnValue = ""
