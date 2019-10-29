@@ -78,8 +78,7 @@ module.exports = {
         "handbag": "a handbag",
         "suitcase": "a suitcase",
         "toothbrush": "a toothbrush",
-        "soap": "a bar of soap",
-        "yeet": "yee"
+        "soap": "a bar of soap"
 
     }
 
