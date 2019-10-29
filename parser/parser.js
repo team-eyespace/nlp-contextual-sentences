@@ -18,14 +18,13 @@ function master() {
     let returnValue = ""
     let csoStart = "Looks like you are outdoors. We see "
     let houseObj = "Looks like you are indoors. We see "
-    
+
     //Vehicle Classifier
-    if(vehicleClassifier() == false) {
+    if (vehicleClassifier() == false) {
 
         console.log("no vehicles() found")
 
-    }
-    else {
+    } else {
 
         returnValue = returnValue + randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
         console.log("constructed vehciles succesfully")
@@ -33,12 +32,11 @@ function master() {
     }
 
     //Person Classifier
-    if(personClassifier() == false) {
+    if (personClassifier() == false) {
 
         console.log("no persons found")
 
-    }
-    else {
+    } else {
 
         returnValue = returnValue + randomString(startStrings) + personClassifier + randomString(endStrings)
         console.log("constructed persons() succesfully")
@@ -47,12 +45,11 @@ function master() {
 
 
     //House Objects Classifier
-    if(houseObjectsClassifier() == false) {
+    if (houseObjectsClassifier() == false) {
 
         console.log("no houseObjects found")
 
-    }
-    else {
+    } else {
 
         returnValue = houseObj + houseObjectsClassifier() + randomString(endStrings)
         console.log("constructed houseObjects() succesfully")
@@ -61,12 +58,11 @@ function master() {
 
 
     //CSO Classifier
-    if(csoClassifier() == false) {
+    if (csoClassifier() == false) {
 
         console.log("no CSO found")
 
-    }
-    else {
+    } else {
 
         returnValue = csoStart + csoClassifier() + randomString(endStrings)
         console.log("constructed CSO() succesfully")
@@ -78,87 +74,82 @@ function master() {
 }
 
 
-function vehicleClassifier () {
+function vehicleClassifier() {
     let finalString = ""
     let curTags = [];
     let vehicleCount = 0;
-    
-    for(let tag in sampleTags) {
-    
-    let curTag = sampleTags[tag];
-    curTag = curTag.toLowerCase();
 
-    if(cov.vehicles[curTag] != undefined) {
+    for (let tag in sampleTags) {
 
-        curTags.push(curTag);
-        vehicleCount++;
+        let curTag = sampleTags[tag];
+        curTag = curTag.toLowerCase();
+
+        if (cov.vehicles[curTag] != undefined) {
+
+            curTags.push(curTag);
+            vehicleCount++;
+
+        }
 
     }
 
-}
+    /*
+        - Check for Vehicle count 
+        - Trim the string for unwanted whitespace
+        - Substring the final string to remove a comma before the final tag is added
+    */
 
-/*
-    - Check for Vehicle count 
-    - Trim the string for unwanted whitespace
-    - Substring the final string to remove a comma before the final tag is added
-*/
+    if (vehicleCount >= 3) {
 
-    if(vehicleCount >= 3) {
-
-        for(let i = 0; i < vehicleCount - 1; i++) {
+        for (let i = 0; i < vehicleCount - 1; i++) {
 
             let curTag = curTags[i]
             finalString = finalString + cov.vehicles[curTag] + ", "
-        
-        
+
+
         }
-        
+
         finalString = finalString.trim();
-        
+
         finalString = finalString.substring(0, finalString.length - 1)
-        
+
         finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]]
 
         finalString = finalString + " " + cov.vehicles.default;
-    }
-
-    else if(vehicleCount == 0) {
+    } else if (vehicleCount == 0) {
 
         return false
 
-    }
-    else {
+    } else {
 
-        if(vehicleCount == 2) {
+        if (vehicleCount == 2) {
 
             let curTag1 = curTags[0]
 
             let curTag2 = curTags[1]
-        
+
 
             finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2]
-        
+
             finalString = finalString.trim()
 
 
-        }
-
-        else {
+        } else {
 
             let curTag = curTags[0]
-        
+
             finalString = finalString + cov.vehicles[curTag]
-        
+
             finalString = finalString.trim()
 
 
         }
 
-        
+
 
     }
 
-    return finalString 
+    return finalString
 }
 
 
@@ -185,19 +176,15 @@ function personClassifier() {
     }
 
     if (personCount == 0) {
-        
+
         return false;
 
-    }
-
-    else if(personCount == 1) {
+    } else if (personCount == 1) {
 
         finalString = cov.LivingBeings[perTags[0]]
 
-    }
-    
-    else {
-        
+    } else {
+
         for (let i = 0; i < personCount - 1; i++) {
 
             let perTag = perTags[i]
@@ -240,19 +227,15 @@ function houseObjectsClassifier() {
     }
 
     if (houseCount == 0) {
-        
+
         return false;
 
-    }
-
-    else if(houseCount == 1) {
+    } else if (houseCount == 1) {
 
         finalString = finalString + cov.houseObjects[houseTags[0]]
 
-    }
-    
-    else {
-        
+    } else {
+
         for (let i = 0; i < houseCount - 1; i++) {
 
             let perTag = houseTags[i]
@@ -294,19 +277,15 @@ function csoClassifier() {
     }
 
     if (csoCount == 0) {
-        
+
         return false;
 
-    }
-
-    else if(csoCount == 1) {
+    } else if (csoCount == 1) {
 
         finalString = finalString + cov.CSO[csoTags[0]]
 
-    }
-    
-    else {
-        
+    } else {
+
         for (let i = 0; i < csoCount - 1; i++) {
 
             let perTag = csoTags[i]
@@ -329,21 +308,12 @@ function csoClassifier() {
 
 
 
-
-
-
-
-
-
-
-
 // Helper Functions
 
 function randomString(inputStringData) {
-    
+
     let rand = Math.floor((Math.random() * 3));
 
     return inputStringData[rand];
 
 }
-
