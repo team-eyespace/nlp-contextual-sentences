@@ -58,7 +58,8 @@ module.exports = {
         "bank":"a bank",
         "grocery":"a grocery store",
         "road": "a road",
-        "street": "a street"
+        "street": "a street",
+        "trashcan": "a trashcan"
 
     },
 
@@ -78,7 +79,8 @@ module.exports = {
         "handbag": "a handbag",
         "suitcase": "a suitcase",
         "toothbrush": "a toothbrush",
-        "soap": "a bar of soap"
+        "soap": "a bar of soap",
+        "shoe": "shoes"
 
     }
 
