@@ -1,2 +1,2 @@
 # Generating Contextual Sentences
-Generating more contextual sentences for better contextual feedback from image tags. 
+Generating contextual sentences for better contextual feedback from image tags without using NLP.
