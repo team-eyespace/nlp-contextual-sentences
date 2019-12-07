@@ -14,15 +14,12 @@ var sampleTags = ["caR", "baby", "man", "woman", "bottle"];
 
 
 void main() {
-
-
-print("hello world");
-
+print("hello");
 }
 
 
 String vehicleClassifier() {
-    var finalString = ""
+    var finalString = "";
     var curTags = [];
     var vehicleCount = 0;
 
@@ -31,9 +28,9 @@ String vehicleClassifier() {
         var curTag = sampleTags[tag];
         curTag = curTag.toLowerCase();
 
-        if (cov.vehicles[curTag] != undefined) {
+        if (cov.vehicles[curTag] != Undefined) {
 
-            curTags.push(curTag);
+            curTags.add(curTag);
             vehicleCount++;
 
         }
@@ -48,46 +45,46 @@ String vehicleClassifier() {
 
     if (vehicleCount >= 3) {
 
-        for (let i = 0; i < vehicleCount - 1; i++) {
+        for (var i = 0; i < vehicleCount - 1; i++) {
 
-            let curTag = curTags[i]
-            finalString = finalString + cov.vehicles[curTag] + ", "
+            var curTag = curTags[i];
+            finalString = finalString + cov.vehicles[curTag] + ", ";
 
 
         }
 
         finalString = finalString.trim();
 
-        finalString = finalString.substring(0, finalString.length - 1)
+        finalString = finalString.substring(0, finalString.length - 1);
 
-        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]]
+        finalString = finalString + " and " + cov.vehicles[curTags[vehicleCount - 1]];
 
         finalString = finalString + " " + cov.vehicles.default;
     } else if (vehicleCount == 0) {
 
-        return false
+        return "false";
 
     } else {
 
         if (vehicleCount == 2) {
 
-            let curTag1 = curTags[0]
+            let curTag1 = curTags[0];
 
-            let curTag2 = curTags[1]
+            let curTag2 = curTags[1];
 
 
-            finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2]
+            finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2];
 
-            finalString = finalString.trim()
+            finalString = finalString.trim();
 
 
         } else {
 
-            let curTag = curTags[0]
+            var curTag = curTags[0];
 
-            finalString = finalString + cov.vehicles[curTag]
+            finalString = finalString + cov.vehicles[curTag];
 
-            finalString = finalString.trim()
+            finalString = finalString.trim();
 
 
         }
@@ -96,15 +93,14 @@ String vehicleClassifier() {
 
     }
 
-    return finalString
+    return finalString;
 }
 
 
 
-
 //Person Classifier 
-function personClassifier() {
-    let finalString = ""
+String personClassifier() {
+    let finalString = "";
     let perTags = [];
     let personCount = 0;
 
