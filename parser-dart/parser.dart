@@ -150,8 +150,8 @@ String personClassifier() {
 
 
 // House Objects Classifier
-function houseObjectsClassifier() {
-    var finalString = ""
+String houseObjectsClassifier() {
+    var finalString = "";
     var houseTags = [];
     var houseCount = 0;
 
@@ -161,9 +161,9 @@ function houseObjectsClassifier() {
         var houseTag = sampleTags[tag];
         houseTag = houseTag.toLowerCase();
 
-        if (cov.houseObjects[houseTag] != undefined) {
+        if (cov.houseObjects[houseTag] != Undefined) {
 
-            houseTags.push(houseTag);
+            houseTags.add(houseTag);
             houseCount++;
 
         }
@@ -171,37 +171,37 @@ function houseObjectsClassifier() {
 
     if (houseCount == 0) {
 
-        return false;
+        return "false";
 
     } else if (houseCount == 1) {
 
-        finalString = finalString + cov.houseObjects[houseTags[0]]
+        finalString = finalString + cov.houseObjects[houseTags[0]];
 
     } else {
 
         for (var i = 0; i < houseCount - 1; i++) {
 
-            var perTag = houseTags[i]
-            finalString = finalString + cov.houseObjects[perTag] + ", "
+            var perTag = houseTags[i];
+            finalString = finalString + cov.houseObjects[perTag] + ", ";
 
 
         }
 
         finalString = finalString.trim();
 
-        finalString = finalString.substring(0, finalString.length - 1)
+        finalString = finalString.substring(0, finalString.length - 1);
 
-        finalString = finalString + " and " + cov.houseObjects[houseTags[houseCount - 1]]
+        finalString = finalString + " and " + cov.houseObjects[houseTags[houseCount - 1]];
 
     }
 
-    return finalString
+    return finalString;
 }
 
 
 //CSO Classifier
-function csoClassifier() {
-    var finalString = ""
+String csoClassifier() {
+    var finalString = "";
     var csoTags = [];
     var csoCount = 0;
 
@@ -211,9 +211,9 @@ function csoClassifier() {
         var houseTag = sampleTags[tag];
         houseTag = houseTag.toLowerCase();
 
-        if (cov.CSO[houseTag] != undefined) {
+        if (cov.CSO[houseTag] != Undefined) {
 
-            csoTags.push(houseTag);
+            csoTags.add(houseTag);
             csoCount++;
 
         }
@@ -221,31 +221,31 @@ function csoClassifier() {
 
     if (csoCount == 0) {
 
-        return false;
+        return "false";
 
     } else if (csoCount == 1) {
 
-        finalString = finalString + cov.CSO[csoTags[0]]
+        finalString = finalString + cov.CSO[csoTags[0]];
 
     } else {
 
         for (var i = 0; i < csoCount - 1; i++) {
 
             var perTag = csoTags[i]
-            finalString = finalString + cov.CSO[perTag] + ", "
+            finalString = finalString + cov.CSO[perTag] + ", ";
 
 
         }
 
-        finalString = finalString.trim()
+        finalString = finalString.trim();
 
-        finalString = finalString.substring(0, finalString.length - 1)
+        finalString = finalString.substring(0, finalString.length - 1);
 
-        finalString = finalString + " and " + cov.CSO[csoTags[csoCount - 1]]
+        finalString = finalString + " and " + cov.CSO[csoTags[csoCount - 1]];
 
     }
 
-    return finalString
+    return finalString;
 }
 
 
