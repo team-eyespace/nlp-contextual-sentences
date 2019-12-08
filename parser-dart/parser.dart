@@ -68,9 +68,9 @@ String vehicleClassifier() {
 
         if (vehicleCount == 2) {
 
-            let curTag1 = curTags[0];
+            var curTag1 = curTags[0];
 
-            let curTag2 = curTags[1];
+            var curTag2 = curTags[1];
 
 
             finalString = finalString + cov.vehicles[curTag1] + " and " + cov.vehicles[curTag2];
@@ -100,19 +100,19 @@ String vehicleClassifier() {
 
 //Person Classifier 
 String personClassifier() {
-    let finalString = "";
-    let perTags = [];
-    let personCount = 0;
+    var finalString = "";
+    var perTags = [];
+    var personCount = 0;
 
     //Master Loop for checking all types of COV objects
-    for (let tag in sampleTags) {
+    for (var tag in sampleTags) {
 
-        let perTag = sampleTags[tag];
+        var perTag = sampleTags[tag];
         perTag = perTag.toLowerCase();
 
-        if (cov.LivingBeings[perTag] != undefined) {
+        if (cov.LivingBeings[perTag] != Undefined) {
 
-            perTags.push(perTag);
+            perTags.add(perTag);
             personCount++;
 
         }
@@ -120,45 +120,45 @@ String personClassifier() {
 
     if (personCount == 0) {
 
-        return false;
+        return "false";
 
     } else if (personCount == 1) {
 
-        finalString = cov.LivingBeings[perTags[0]]
+        finalString = cov.LivingBeings[perTags[0]];
 
     } else {
 
-        for (let i = 0; i < personCount - 1; i++) {
+        for (var i = 0; i < personCount - 1; i++) {
 
-            let perTag = perTags[i]
-            finalString = finalString + cov.LivingBeings[perTag] + ", "
+            var perTag = perTags[i];
+            finalString = finalString + cov.LivingBeings[perTag] + ", ";
 
 
         }
 
         finalString = finalString.trim();
 
-        finalString = finalString.substring(0, finalString.length - 1)
+        finalString = finalString.substring(0, finalString.length - 1);
 
-        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]]
+        finalString = finalString + " and " + cov.LivingBeings[perTags[personCount - 1]];
 
     }
 
-    return finalString
+    return finalString;
 }
 
 
 
 // House Objects Classifier
 function houseObjectsClassifier() {
-    let finalString = ""
-    let houseTags = [];
-    let houseCount = 0;
+    var finalString = ""
+    var houseTags = [];
+    var houseCount = 0;
 
     //Master Loop for checking all types of COV objects
-    for (let tag in sampleTags) {
+    for (var tag in sampleTags) {
 
-        let houseTag = sampleTags[tag];
+        var houseTag = sampleTags[tag];
         houseTag = houseTag.toLowerCase();
 
         if (cov.houseObjects[houseTag] != undefined) {
@@ -179,9 +179,9 @@ function houseObjectsClassifier() {
 
     } else {
 
-        for (let i = 0; i < houseCount - 1; i++) {
+        for (var i = 0; i < houseCount - 1; i++) {
 
-            let perTag = houseTags[i]
+            var perTag = houseTags[i]
             finalString = finalString + cov.houseObjects[perTag] + ", "
 
 
@@ -201,14 +201,14 @@ function houseObjectsClassifier() {
 
 //CSO Classifier
 function csoClassifier() {
-    let finalString = ""
-    let csoTags = [];
-    let csoCount = 0;
+    var finalString = ""
+    var csoTags = [];
+    var csoCount = 0;
 
     //Master Loop for checking all types of COV objects
-    for (let tag in sampleTags) {
+    for (var tag in sampleTags) {
 
-        let houseTag = sampleTags[tag];
+        var houseTag = sampleTags[tag];
         houseTag = houseTag.toLowerCase();
 
         if (cov.CSO[houseTag] != undefined) {
@@ -229,9 +229,9 @@ function csoClassifier() {
 
     } else {
 
-        for (let i = 0; i < csoCount - 1; i++) {
+        for (var i = 0; i < csoCount - 1; i++) {
 
-            let perTag = csoTags[i]
+            var perTag = csoTags[i]
             finalString = finalString + cov.CSO[perTag] + ", "
 
 
