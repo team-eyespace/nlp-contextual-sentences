@@ -231,7 +231,7 @@ String csoClassifier() {
 
         for (var i = 0; i < csoCount - 1; i++) {
 
-            var perTag = csoTags[i]
+            var perTag = csoTags[i];
             finalString = finalString + cov.CSO[perTag] + ", ";
 
 
