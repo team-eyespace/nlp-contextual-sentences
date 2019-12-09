@@ -40,7 +40,7 @@ function master() {
 
     } else {
 
-        returnValue = returnValue + randomString(startStrings) + personClassifier + randomString(endStrings)
+        returnValue = returnValue + randomString(startStrings) + personClassifier() + randomString(endStrings)
         console.log("constructed persons succesfully")
 
     }
@@ -77,8 +77,19 @@ function master() {
 
     } else {
 
-        returnValue = returnValue + csoStart + csoClassifier() + randomString(endStrings)
-        console.log("constructed CSO succesfully")
+        if(isOutside) {
+
+            returnValue = returnValue + randomString(startStrings) + csoClassifier() + randomString(endStrings)
+            console.log("constructed houseObjects succesfully")
+
+
+        } else {
+
+            returnValue = returnValue + csoStart + csoClassifier() + randomString(endStrings)
+            console.log("constructed houseObjects succesfully")
+
+        }
+
 
     }
 
