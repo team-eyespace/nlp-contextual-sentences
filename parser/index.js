@@ -9,7 +9,7 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-let sampleTags = ["caR", "baby", "man", "woman", "bottle"]
+let sampleTags = ["caR", "baby", "man", "woman", "bottle", "house", "truck"]
 master();
 
 
@@ -18,16 +18,18 @@ function master() {
     let returnValue = ""
     let csoStart = "Looks like you are outdoors. We see "
     let houseObj = "Looks like you are indoors. We see "
+    let isOutside = false
 
     //Vehicle Classifier
     if (vehicleClassifier() == false) {
 
-        console.log("no vehicles() found")
+        console.log("no vehicles found")
 
     } else {
 
         returnValue = returnValue + randomString(startStrings) + vehicleClassifier() + randomString(endStrings)
         console.log("constructed vehciles succesfully")
+        isOutside = true
 
     }
 
@@ -38,8 +40,8 @@ function master() {
 
     } else {
 
-        returnValue = returnValue + randomString(startStrings) + personClassifier + randomString(endStrings)
-        console.log("constructed persons() succesfully")
+        returnValue = returnValue + randomString(startStrings) + personClassifier() + randomString(endStrings)
+        console.log("constructed persons succesfully")
 
     }
 
@@ -50,9 +52,20 @@ function master() {
         console.log("no houseObjects found")
 
     } else {
+        
+        if(isOutside) {
 
-        returnValue = houseObj + houseObjectsClassifier() + randomString(endStrings)
-        console.log("constructed houseObjects() succesfully")
+            returnValue = returnValue + randomString(startStrings) + houseObjectsClassifier() + randomString(endStrings)
+            console.log("constructed houseObjects succesfully")
+
+
+        } else {
+
+            returnValue = returnValue + houseObj + houseObjectsClassifier() + randomString(endStrings)
+            console.log("constructed houseObjects succesfully")
+
+        }
+        
 
     }
 
@@ -64,15 +77,25 @@ function master() {
 
     } else {
 
-        returnValue = csoStart + csoClassifier() + randomString(endStrings)
-        console.log("constructed CSO() succesfully")
+        if(isOutside) {
+
+            returnValue = returnValue + randomString(startStrings) + csoClassifier() + randomString(endStrings)
+            console.log("constructed houseObjects succesfully")
+
+
+        } else {
+
+            returnValue = returnValue + csoStart + csoClassifier() + randomString(endStrings)
+            console.log("constructed houseObjects succesfully")
+
+        }
+
 
     }
 
     console.log(returnValue)
 
 }
-
 
 function vehicleClassifier() {
     let finalString = ""
@@ -148,7 +171,6 @@ function vehicleClassifier() {
 
 
     }
-
     return finalString
 }
 
