@@ -9,7 +9,7 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-let sampleTags = ["caR", "baby", "man", "woman", "bottle", "house"]
+let sampleTags = ["caR", "baby", "man", "woman", "bottle", "house", ""]
 master();
 
 
@@ -148,7 +148,6 @@ function vehicleClassifier() {
 
 
     }
-
     return finalString
 }
 
