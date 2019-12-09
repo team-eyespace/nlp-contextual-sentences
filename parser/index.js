@@ -97,7 +97,6 @@ function master() {
 
 }
 
-
 function vehicleClassifier() {
     let finalString = ""
     let curTags = [];
