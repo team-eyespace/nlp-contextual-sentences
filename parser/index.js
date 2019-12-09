@@ -9,7 +9,7 @@ let startStrings = ["There is ", "The app sees ", "You are looking at "]
 let endStrings = [" near you.", " in front of you.", " alongside you."]
 
 
-let sampleTags = ["caR", "baby", "man", "woman", "bottle"]
+let sampleTags = ["caR", "baby", "man", "woman", "bottle", "house"]
 master();
 
 
@@ -22,7 +22,7 @@ function master() {
     //Vehicle Classifier
     if (vehicleClassifier() == false) {
 
-        console.log("no vehicles() found")
+        console.log("no vehicles found")
 
     } else {
 
@@ -39,7 +39,7 @@ function master() {
     } else {
 
         returnValue = returnValue + randomString(startStrings) + personClassifier + randomString(endStrings)
-        console.log("constructed persons() succesfully")
+        console.log("constructed persons succesfully")
 
     }
 
@@ -52,7 +52,7 @@ function master() {
     } else {
 
         returnValue = houseObj + houseObjectsClassifier() + randomString(endStrings)
-        console.log("constructed houseObjects() succesfully")
+        console.log("constructed houseObjects succesfully")
 
     }
 
@@ -65,7 +65,7 @@ function master() {
     } else {
 
         returnValue = csoStart + csoClassifier() + randomString(endStrings)
-        console.log("constructed CSO() succesfully")
+        console.log("constructed CSO succesfully")
 
     }
 
