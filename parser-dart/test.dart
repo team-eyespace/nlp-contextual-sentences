@@ -7,7 +7,23 @@ var jsonString = '''
   ]
 ''';
 
+var finalJson = ''' [
 
+{"vehicles" : {
+
+  "car": "a car",
+        "bus": "a big bus",
+        "truck": "a big truck",
+        "train": "a train",
+        "bicycle": "a bicycle",
+        "bike": "a bike"
+}}
+
+
+]
+
+
+''';
 var testJson = ''' "vehicles":[
 
         "car": "a car",
@@ -32,7 +48,7 @@ void main() {
 
   // }
 
-  var testScores = jsonDecode(testJson);
-  print(testScores);
+  var testScores = jsonDecode(finalJson);
+  print(testScores[0]['vehicles']);
 
 }
