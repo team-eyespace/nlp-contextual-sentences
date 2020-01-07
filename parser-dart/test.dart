@@ -6,9 +6,15 @@ var jsonString = '''
     {"score": 80}
   ]
 ''';
-var scores = jsonDecode(jsonString);
-assert(scores is List);
 
-var firstScore = scores[0];
-assert(firstScore is Map);
-assert(firstScore['score'] == 40);
+void main() {
+
+  var scores = jsonDecode(jsonString);
+  
+  for(var key in scores) {
+
+    print(key['score']);
+
+  }
+
+}
