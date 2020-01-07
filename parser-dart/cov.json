@@ -26,7 +26,6 @@
         "baby": "a cute baby",
         "person": "a person",
 
-        //Animals(sepcifically found in Brazil more)
         "dog": "a dog",
         "cat": "a cat",
         "bird": "a bird",
@@ -35,7 +34,7 @@
 
     },
 
-    CSO: {
+    "CSO": {
         "house": "a house",
         "hospital": "a hospital",
         "museum":"a museum",
@@ -47,7 +46,7 @@
 
     },
 
-    houseObjects: {
+    "houseObjects": {
         "bottle": "a bottle",
         "bowl": "a bowl",
         "can": "a can",
@@ -69,4 +68,4 @@
     }
 
 
-};
+}
