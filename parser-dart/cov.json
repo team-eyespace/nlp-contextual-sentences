@@ -1,22 +1,6 @@
-module.exports = {
+{
 
-    /* 
-        Common Objects in View(COV)
-
-        Vehicles
-            bicycle, bus, motorcycle, pickup truck, train, truck, bike
-            lawn-mower, rocket, streetcar, tank, tractor
-
-        Buildings
-
-        CSO(Common Street Objects)
-
-        House Objects
-
-    
-    */
-    //Vehicles
-    vehicles:{
+    "vehicles":{
 
         "car": "a car",
         "bus": "a big bus",
@@ -30,9 +14,9 @@ module.exports = {
 
     },
 
-    LivingBeings: {
+    "LivingBeings": {
 
-        //People
+        
         "man": "a man",
         "dude": "a man",
         "women": "are women",
