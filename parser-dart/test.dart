@@ -17,26 +17,9 @@ var finalJson = ''' [
         "train": "a train",
         "bicycle": "a bicycle",
         "bike": "a bike"
-}}
-
-
-]
-
+}}]
 
 ''';
-var testJson = ''' "vehicles":[
-
-        "car": "a car",
-        "bus": "a big bus",
-        "truck": "a big truck",
-        "train": "a train",
-        "bicycle": "a bicycle",
-        "bike": "a bike",
-        "motorcycle": "a motorcycle",
-        "airplane": "an airplane",
-        "default": "Be Careful!"
-
-    ] ''';
 
 void main() {
 
