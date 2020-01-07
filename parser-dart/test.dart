@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-var jsonString =
+var jsonString = '''
   [
     {"score": 40},
     {"score": 80}
-  ];
-
+  ]
+''';
 var scores = jsonDecode(jsonString);
 assert(scores is List);
 
